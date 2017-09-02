@@ -15,6 +15,7 @@ public class Sample {
     // The text to analyze
     String text = "Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic " +
             "Show.  Sundar Pichai said in his keynote that users love their new Android phones.";
+
     Document doc = Document.newBuilder()
             .setContent(text).setType(Document.Type.PLAIN_TEXT).build();
 
@@ -23,6 +24,9 @@ public class Sample {
 
     //Entity Sentiment
     analyseEntity(languageApi, doc);
+
+    //Syntax Analysis
+    analyseSyntax(languageApi, doc);
   }
 
   /**
@@ -66,6 +70,29 @@ public class Sample {
       System.out.println("Salience  : " + entity.getSentimentOrBuilder().getScore());
       System.out.println();
     }
+  }
+
+  /**
+   * Sample method to analyse syntax.
+   * @param languageApi
+   * @param doc
+   */
+  public static void analyseSyntax(LanguageServiceClient languageApi, Document doc) {
+
+    AnalyzeSyntaxRequest request = AnalyzeSyntaxRequest.newBuilder()
+            .setDocument(doc)
+            .setEncodingType(EncodingType.UTF16).build();
+    AnalyzeSyntaxResponse response = languageApi.analyzeSyntax(request);
+
+    System.out.println(" <------ GCP NLP Syntax Analysis -----> ");
+
+    for(Token token : response.getTokensList())
+    {
+      System.out.println();
+      System.out.println(token.toString());
+      System.out.println();
+    }
+
   }
 }
 // [END language_quickstart]
