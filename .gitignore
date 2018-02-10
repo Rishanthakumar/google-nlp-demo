@@ -29,5 +29,6 @@ buildNumber.properties
 ### MAC
 .DS_Store
 
-
+## Private
+NLPFirstProject.json
 
