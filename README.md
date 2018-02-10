@@ -12,6 +12,8 @@ Language API.
 
    - Install [Maven](http://maven.apache.org/).
    - Clone this project.
+   - Get the key json from Google.
+   - Save it in a json file ( ex: NLPFirstProject.json).
    - Get the absolute path of the `NLPFirstProject.json` file, which is available in the project root folder.
    - Set the environment variable as follows
    
