@@ -11,6 +11,7 @@ Language API.
 ## Quickstart
 
    - Install [Maven](http://maven.apache.org/).
+   - Clone this project.
    - Get the absolute path of the `NLPFirstProject.json` file, which is available in the project root folder.
    - Set the environment variable as follows
    
